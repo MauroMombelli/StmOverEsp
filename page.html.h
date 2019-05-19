@@ -1,5 +1,6 @@
-const String ris = "<html><head>EspRemote</head><body> \
+const String ris = "<html><head><title>EspRemote</title></head><body> \
 <div align='center'> \
+<h1>EspRemote</h1>
 <form method='post'> \
   SSID:<br> \
   <input type='text' name='ssid' value='SSS'><br><br> \
