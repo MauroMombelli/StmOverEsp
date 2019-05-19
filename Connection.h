@@ -56,6 +56,9 @@ void connect(struct memory_s eeprom){
   
   if (eeprom.is_client){
     connected = tryConnectAsClient(eeprom);
+    if (!connected){
+      resetPreferences(&eeprom);
+    }
   }
   
   if (!connected){

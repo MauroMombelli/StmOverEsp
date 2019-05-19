@@ -51,19 +51,25 @@ class Programmer{
     static WiFiClient client = configuration.available();
     if (!client){
       client = configuration.available();
+      if (client){
+        client.write("Welcome to Lesto's EspStmRemote\r\n");
+      }
     }
     if (client){
-      while (client.connected()){
-        if ( client.read() == 'r' ){
-          resetStm();
-        }
-        
-        if ( client.read() == 'u' ){
-          startUploadStm();
-        }
-  
-        if ( client.read() == 'e' ){
-          endUploadStm();
+      if (client.connected()){
+        switch(client.read()){
+          case 'r':
+            client.write("Reset requested\r\n");
+            resetStm();
+            break;
+          case 'u':
+            client.write("Start upload requested\r\n");
+            startUploadStm();
+            break;
+          case 'e':
+            client.write("End upload requested\r\n");
+            endUploadStm();
+            break;
         }
       }
     }

@@ -20,23 +20,22 @@ class SerialBridge{
     static WiFiClient client = server.available();
     if (!client){
       client = server.available();
-    }
-    if (client){
+      
       digitalWrite(BUILTIN_LED1, HIGH);
-  
       //flush all the buffer
       while(Serial.available()){
         Serial.read();
       }
-      
-      while (client.connected()){
-  
-        while ( client.available() )
+    }
+    if (client){
+      if (client.connected()){
+        uint8_t timeout = 100;
+        while ( client.available() && --timeout )
         {
           Serial.write( client.read() );
         }
-      
-        while ( Serial.available() )
+        timeout = 100;
+        while ( Serial.available() && --timeout )
         {
           client.write( Serial.read() );
         }

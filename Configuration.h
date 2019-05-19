@@ -72,7 +72,7 @@ void resetPreferences(struct memory_s *eeprom){
 
   eeprom->version = 1;
 
-  eeprom->timeout_connect_seconds = 30;
+  eeprom->timeout_connect_seconds = 10;
 
   eeprom->is_client = 0;
   eeprom->is_dhcp = 0;
