@@ -1,6 +1,6 @@
 #include "Configuration.h"
 
-#include <ESP8266WiFi.h>
+#include <WiFi.h>
 
 class Programmer{
  private:

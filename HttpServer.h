@@ -1,8 +1,8 @@
-#include <ESP8266WebServer.h>
+#include <WebServer.h>
 
 class HttpServer{
  private:
-  ESP8266WebServer configurationHttp{80}; //creating the server at port 80
+  WebServer configurationHttp{80}; //creating the server at port 80
   struct memory_s *eeprom;
   #include "page.html.h"
 

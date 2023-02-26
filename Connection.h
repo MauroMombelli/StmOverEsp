@@ -49,6 +49,8 @@ bool tryConnectAsAP(struct memory_s eeprom){
   WiFi.softAP(ssid, password);
   Serial.print("Soft-AP IP address = ");
   Serial.println(WiFi.softAPIP());
+
+  return true;
 }
 
 void connect(struct memory_s eeprom){
